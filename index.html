@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snake and Ladder - 3 Players</title>
+  <style>
+    .container {
+      display: grid;
+      grid-template-columns: repeat(10, 50px);
+      grid-template-rows: repeat(10, 50px);
+      width: 500px;
+      height: 500px;
+      background-image: url("snake.jpg");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      border: 2px solid black;
+      margin: 20px auto;
+    }
+
+    .container div {
+      border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      color: white;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px black;
+      position: relative;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .player1 {
+      background-color: green;
+      top: 2px;
+      left: 2px;
+    }
+
+    .player2 {
+      background-color: red;
+      bottom: 2px;
+      right: 2px;
+    }
+
+    .player3 {
+      background-color: blue;
+      top: 2px;
+      right: 2px;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: sans-serif;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Snake and Ladder Game - 2 Players</h1>
+
+<div class="container">
+    <div class="title100">100</div>
+  <div class="title99">99</div>
+  <div class="title98">98</div>
+  <div class="title97">97</div>
+  <div class="title96">96</div>
+  <div class="title95">95</div>
+  <div class="title94">94</div>
+  <div class="title93">93</div>
+  <div class="title92">92</div>
+  <div class="title91">91</div>
+  <div class="title81">81</div>
+  <div class="title82">82</div>
+  <div class="title83">83</div>
+  <div class="title84">84</div>
+  <div class="title85">85</div>
+  <div class="title86">86</div>
+  <div class="title87">87</div>
+  <div class="title88">88</div>
+  <div class="title89">89</div>
+  <div class="title90">90</div>
+  <div class="title80">80</div>
+  <div class="title79">79</div>
+  <div class="title78">78</div>
+  <div class="title77">77</div>
+  <div class="title76">76</div>
+  <div class="title75">75</div>
+  <div class="title74">74</div>
+  <div class="title73">73</div>
+  <div class="title72">72</div>
+  <div class="title71">71</div>
+  <div class="title61">61</div>
+  <div class="title62">62</div>
+  <div class="title63">63</div>
+  <div class="title64">64</div>
+  <div class="title65">65</div>
+  <div class="title66">66</div>
+  <div class="title67">67</div>
+  <div class="title68">68</div>
+  <div class="title69">69</div>
+  <div class="title70">70</div>
+  <div class="title60">60</div>
+  <div class="title59">59</div>
+  <div class="title58">58</div>
+  <div class="title57">57</div>
+  <div class="title56">56</div>
+  <div class="title55">55</div>
+  <div class="title54">54</div>
+  <div class="title53">53</div>
+  <div class="title52">52</div>
+  <div class="title51">51</div>
+  <div class="title41">41</div>
+  <div class="title42">42</div>
+  <div class="title43">43</div>
+  <div class="title44">44</div>
+  <div class="title45">45</div>
+  <div class="title46">46</div>
+  <div class="title47">47</div>
+  <div class="title48">48</div>
+  <div class="title49">49</div>
+  <div class="title50">50</div>
+  <div class="title40">40</div>
+  <div class="title39">39</div>
+  <div class="title38">38</div>
+  <div class="title37">37</div>
+  <div class="title36">36</div>
+  <div class="title35">35</div>
+  <div class="title34">34</div>
+  <div class="title33">33</div>
+  <div class="title32">32</div>
+  <div class="title31">31</div>
+  <div class="title22">21</div>
+  <div class="title22">22</div>
+  <div class="title23">23</div>
+  <div class="title24">24</div>
+  <div class="title25">25</div>
+  <div class="title26">26</div>
+  <div class="title27">27</div>
+  <div class="title28">28</div>
+  <div class="title29">29</div>
+  <div class="title30">30</div>
+  <div class="title20">20</div>
+  <div class="title19">19</div>
+  <div class="title18">18</div>
+  <div class="title17">17</div>
+  <div class="title16">16</div>
+  <div class="title15">15</div>
+  <div class="title14">14</div>
+  <div class="title13">13</div>
+  <div class="title12">12</div>
+  <div class="title11">11</div>
+  <div class="title1">1</div>
+  <div class="title2">2</div>
+  <div class="title3">3</div>
+  <div class="title4">4</div>
+  <div class="title5">5</div>
+  <div class="title6">6</div>
+  <div class="title7">7</div>
+  <div class="title8">8</div>
+  <div class="title9">9</div>
+  <div class="title10">10</div>
+</div>
+
+<button onclick="rollDice()">Roll Dice</button>
+<p id="status"></p>
+<audio id="ladderSound" src="ladder.mp3"></audio>
+<audio id="snakeSound" src="snake.mp3"></audio>
+<audio id="winSound" src="win.mp3"></audio>
+
+<script>
+  const player1 = document.createElement("div");
+  player1.classList.add("dot", "player1");
+
+  const player2 = document.createElement("div");
+  player2.classList.add("dot", "player2");
+
+  let pos1 = 0;
+  let pos2 = 0;
+  let currentPlayer = 1;
+
+  function rollDice() {
+    const roll = 1 + Math.floor(Math.random() * 6);
+    document.getElementById("status").innerText = `Player ${currentPlayer} rolled a ${roll}`;
+
+    if (currentPlayer === 1) {
+      if (pos1 + roll <= 100) pos1 += roll;
+      pos1 = handleSnakesAndLadders(pos1);
+      moveDot(player1, pos1);
+      if (roll !== 6) currentPlayer = 2;
+    } else {
+      if (pos2 + roll <= 100) pos2 += roll;
+      pos2 = handleSnakesAndLadders(pos2);
+      moveDot(player2, pos2);
+      if (roll !== 6) currentPlayer = 1;
+    }
+
+    checkWin();
+  }
+
+  function moveDot(dot, position) {
+    const tile = document.querySelector(`.title${position}`);
+    if (tile) tile.appendChild(dot);
+  }
+
+  function handleSnakesAndLadders(pos) {
+    const snakesAndLadders = {
+      
+      4: 25,
+      13: 46,
+      33: 49,
+      42: 63,
+      50: 69,
+      62: 81,
+      74: 92,
+      c
+      27: 5,
+      40: 3,
+      43: 18,
+      54: 31,
+      66: 45,
+      76: 58,
+      89: 53,
+      99: 41
+    };
+
+    const newPos = snakesAndLadders[pos];
+    if (newPos) {
+      if (newPos > pos) {
+        
+        document.getElementById("ladderSound").play();
+      } else {
+        
+        document.getElementById("snakeSound").play();
+      }
+      return newPos;
+    }
+    return pos;
+  }
+
+  function checkWin() {
+    if (pos1 === 100) {
+      document.getElementById("winSound").play();
+      setTimeout(() => alert(" Player 1 wins!"), 200); 
+      reset();
+    } else if (pos2 === 100) {
+      document.getElementById("winSound").play();
+      setTimeout(() => alert("Player 2 wins!"), 200);
+      reset();
+    }
+  }
+
+  function reset() {
+    pos1 = pos2 = 0;
+    currentPlayer = 1;
+    moveDot(player1, 0);
+    moveDot(player2, 0);
+  }
+
+
+  moveDot(player1, 0);
+  moveDot(player2, 0);
+</script>
+
+</body>
+</html>
